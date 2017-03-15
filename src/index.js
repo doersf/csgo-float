@@ -111,6 +111,8 @@ class FloatClient extends EventEmitter {
   _decodeFloat (header, msg) {
     const response = new protos.CMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockResponse.decode(msg)
 
+      console.log(" -- response: " + JSON.stringify(response));
+
     const buf = new Buffer(4)
     buf.writeUInt32LE(Number(response.iteminfo.paintwear), 0)
     if (this._defer) {
